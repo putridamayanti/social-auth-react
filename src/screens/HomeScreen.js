@@ -8,7 +8,7 @@ export default class HomeScreen extends React.Component {
 
     async logout() {
         const token = await AsyncStorage.getItem('@user_token');
-        logout(token).then(result => {
+        logout(token).then(async result => {
             console.log(result);
             if (result) {
                 await AsyncStorage.setItem('@user_token', '');

@@ -33,6 +33,7 @@ const AppNavigator = createStackNavigator(
   },
   {
     initialRouteName: 'Login',
+    headerMode: 'screen'
   }
 );
 

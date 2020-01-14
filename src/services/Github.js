@@ -3,8 +3,8 @@ import { authorize, revoke } from 'react-native-app-auth';
 const REDIRECT_URL = 'my-scheme://my-host/'
 
 const githubConfig = {
-    id: '52c2551c6ed6fbb92e10',
-    secret: '74d465d6330fbb27821c565baac95fc67cf98c9e'
+    id: '12345678910', // Your github id application
+    secret: 'a1b2c3d4e5' // Your github secret application
 }
 
 export async function startAuthorize() {
@@ -26,23 +26,6 @@ export async function startAuthorize() {
   if (authState.accessToken) {
     return authState.accessToken;
   }
-}
-
-export async function getAccessToken() {
-    const result = await fetch('https://github.com/login/oauth/access_token', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        client_id: githubConfig.id,
-        client_secret: githubConfig.secret,
-        code: code
-      }),
-    });
-    
-    return result.json();
 }
 
 export async function logout(token) {
